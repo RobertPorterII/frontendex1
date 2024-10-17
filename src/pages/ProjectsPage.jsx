@@ -21,7 +21,7 @@ export default function ProjectsPage({projects, setProjects}) {
         try {
           e.preventDefault();
           // make POST request to create new project
-          const res = await fetch("http://localhost:3500/api/projects/", {
+          const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/projects`, {
             headers: {
               "Content-Type": "application/json",
             },

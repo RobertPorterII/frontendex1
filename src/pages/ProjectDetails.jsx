@@ -20,7 +20,7 @@ export default function ProjectDetails({projects,setProjects}) {
     
     useEffect(() => {
         const fetchProject = async() => {
-            const res = await fetch(`http://localhost:3500/api/projects/${params.id}`);
+            const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/projects/${params.id}`);
             const data = await res.json();
             console.log(data);
 
@@ -42,7 +42,7 @@ export default function ProjectDetails({projects,setProjects}) {
     }
 
         const handleDelete = async() => {
-            const res = await fetch(`http://localhost:3500/api/projects/${params.id}`,{
+            const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/projects${params.id}`,{
                 method: 'DELETE',
             });
             console.log(res);
@@ -63,7 +63,7 @@ export default function ProjectDetails({projects,setProjects}) {
         const handleSubmit = async (e) => {
             try {
                 e.preventDefault();
-                const res = await fetch(`http://localhost:3500/api/projects/${params.id}`, {
+                const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/projects/${params.id}`, {
                     headers : {
                         'Content-Type': "application/json"
                     },
